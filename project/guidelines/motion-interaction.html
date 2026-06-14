@@ -1,0 +1,36 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Motion & interaction" subtitle="Skeleton, scroll-reveal, focus-visible — reduced-motion safe" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:22px;color:var(--text-body)}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start}
+  .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-subtle);margin:0 0 12px}
+  .sk{display:flex;flex-direction:column;gap:8px}
+  .btn{height:44px;padding:0 18px;border:none;border-radius:var(--radius-md);background:var(--brand);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:var(--text-base);cursor:pointer}
+  .easings{display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted)}
+</style></head>
+<body>
+  <div class="grid">
+    <div>
+      <p class="lbl">Skeleton</p>
+      <div class="sk">
+        <div class="ebr-skeleton" style="height:80px;border-radius:var(--radius-lg)"></div>
+        <div class="ebr-skeleton" style="height:14px;width:80%"></div>
+        <div class="ebr-skeleton" style="height:14px;width:55%"></div>
+      </div>
+    </div>
+    <div>
+      <p class="lbl">Focus-visible</p>
+      <button class="btn" style="box-shadow:var(--ring-focus)">Tab-focused</button>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:12px">3px green ring, keyboard-only.</p>
+    </div>
+    <div>
+      <p class="lbl">Easings</p>
+      <div class="easings">
+        <span>--ease-out · entrances</span>
+        <span>--ease-spring · toggles</span>
+        <span>--dur-fast 120 / base 200 / slow 360</span>
+        <span style="color:var(--text-brand)">.ebr-reveal · scroll-in</span>
+      </div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,35 @@
+<!-- @dsCard group="Website" viewport="1360x760" name="Booking website" subtitle="Home · search results · property detail — interactive" -->
+<!-- @startingPoint section="Website" subtitle="Ebrostay booking website (home → results → detail)" viewport="1360x900" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Ebrostay — Stays in Zaragoza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--surface-page);font-family:var(--font-sans);color:var(--text-body)}
+  ::selection{background:var(--green-200)}
+  a{text-decoration:none}
+</style></head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Home.jsx"></script>
+<script type="text/babel" src="Results.jsx"></script>
+<script type="text/babel" src="Detail.jsx"></script>
+<script type="text/babel" src="SiteApp.jsx"></script>
+<script type="text/babel">
+  if (window.EbrostayDesignSystem_8b1b13) {
+    ReactDOM.createRoot(document.getElementById('root')).render(<EbrApp/>);
+    setTimeout(() => window.lucide && window.lucide.createIcons(), 120);
+  } else {
+    document.getElementById('root').innerHTML =
+      '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;font-family:var(--font-sans);color:var(--text-muted)"><div><div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--text-strong);margin-bottom:8px">Ebrostay UI kit</div>This kit renders against the Ebrostay component library.<br>Open it from the <b>Design System</b> tab (or any project that has the bundle) to see it live.</div></div>';
+  }
+</script>
+</body></html>

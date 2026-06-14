@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Ebrostay — Bridge logo, water under the arch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--surface-page);font-family:var(--font-sans);color:var(--text-body);padding:44px 40px 80px}
+  .wrap{max-width:1120px;margin:0 auto}
+  h1{font-family:var(--font-display);font-weight:600;font-size:var(--text-3xl);letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0}
+  .sub{font-size:var(--text-md);color:var(--text-muted);margin:10px 0 36px;max-width:700px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden}
+  .card.live{border:1.5px solid var(--border-brand)}
+  .stage{display:flex;align-items:center;gap:18px;padding:26px}
+  .wm{font-family:var(--font-display);font-weight:500;font-size:24px;letter-spacing:-.6px;color:var(--stone-900)}
+  .wm .g{color:var(--brand)}
+  .dark{margin-left:auto;width:64px;height:64px;border-radius:var(--radius-md);background:var(--surface-inverse);display:flex;align-items:center;justify-content:center;flex:none}
+  .meta{display:flex;align-items:center;gap:12px;padding:13px 22px;border-top:1px solid var(--border-subtle)}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--surface-sunken);font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text-muted);flex:none}
+  .name{font-weight:600;font-size:var(--text-base);color:var(--text-strong)}
+  .tagstyle{font-family:var(--font-mono);font-size:10px;color:var(--text-subtle);text-transform:uppercase;letter-spacing:.05em}
+  .hex{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-muted)}
+  .live-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:var(--radius-pill);background:var(--brand-soft);color:var(--text-brand)}
+  .favs{margin-left:auto;display:flex;align-items:center;gap:14px}
+</style></head>
+<body><div class="wrap">
+  <h1>Ebrostay — minimal arch, water inside</h1>
+  <p class="sub">Stripped to the essentials: no base bar, just the <b>arch</b> with a small water fill sitting inside it. Lighter wordmark (weight 600) and <b>"Ebrostay"</b> as one word. <b>#10 Soft sky</b> is the chosen logo — and on the dark tile the arch is centred in the square. The rest are kept for reference.</p>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+  const V = [
+    { n:'Sky',        river:'#2f74cc', rd:'#7db4f0', style:'wave', s:'wavy' },
+    { n:'Azure',      river:'#1e7fd4', rd:'#74b6f2', style:'wave', s:'wavy' },
+    { n:'Teal',       river:'#0e9aa7', rd:'#5fd0d8', style:'wave', s:'wavy' },
+    { n:'Aqua',       river:'#1bb6c1', rd:'#7fe1e8', style:'wave', s:'wavy' },
+    { n:'Cobalt',     river:'#1b4fa0', rd:'#6f9fe0', style:'wave', s:'wavy' },
+    { n:'Sage green', river:'#43a06f', rd:'#9ad9b4', style:'wave', s:'wavy' },
+    { n:'Monochrome', river:'#1f8a57', rd:'#71bd91', style:'wave', s:'wavy' },
+    { n:'Sky · high', river:'#2f74cc', rd:'#7db4f0', style:'full', s:'fuller' },
+    { n:'Sky · still',river:'#2f74cc', rd:'#7db4f0', style:'flat', s:'flat' },
+    { n:'Soft sky',   river:'#9cc4f0', rd:'#c5ddf6', style:'wave', s:'wavy', live:true },
+  ];
+
+  function arch(fill){
+    return `<path fill="${fill}" d="M7 30 L7 21 A17 17 0 0 1 41 21 L41 30 L35 30 L35 22 A11 11 0 0 0 13 22 L13 30 Z"></path>`;
+  }
+  function water(c, style){
+    if (style === 'full')
+      return `<path fill="${c}" d="M13 30 L13 23.8 C16.5 22.4 19.5 24.8 24 23.6 C28.5 22.4 31.5 24.8 35 23.6 L35 30 Z"></path>`;
+    if (style === 'flat')
+      return `<path fill="${c}" d="M13 30 L13 26 L35 26 L35 30 Z"></path>`;
+    return `<path fill="${c}" d="M13 30 L13 26.5 C16.5 25.1 19.5 27.4 24 26.3 C28.5 25.2 31.5 27.4 35 26.3 L35 30 Z"></path>`;
+  }
+  function mark(size, c, style, archFill, center){
+    const inner = arch(archFill||'#1f8a57') + water(c, style);
+    const content = center ? `<g transform="translate(0,7)">${inner}</g>` : inner;
+    return `<svg width="${size}" height="${size}" viewBox="0 0 48 48">${content}</svg>`;
+  }
+
+  document.getElementById('grid').innerHTML = V.map((v, i) => `
+    <div class="card${v.live ? ' live' : ''}">
+      <div class="stage">
+        ${mark(62, v.river, v.style)}
+        <span class="wm">Ebro<span class="g">stay</span></span>
+        <div class="dark">${mark(42, v.rd, v.style, '#ffffff', true)}</div>
+      </div>
+      <div class="meta">
+        <span class="num">${i + 1}</span>
+        <span class="name">${v.n}</span>
+        <span class="hex">${v.river.toUpperCase()}</span>
+        <span class="tagstyle">${v.s}</span>
+        ${v.live ? '<span class="live-tag">Live</span>' : ''}
+        <span class="favs">${mark(40, v.river, v.style)}${mark(22, v.river, v.style)}</span>
+      </div>
+    </div>`).join('');
+</script>
+</body></html>

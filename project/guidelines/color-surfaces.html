@@ -1,0 +1,18 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Surfaces & glass" subtitle="Page, card, inverse + transparency/blur overlays" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);padding:18px;
+    background:linear-gradient(120deg,#1f8a57,#0e4730)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tile{height:120px;border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;box-shadow:var(--shadow-md)}
+  .tile b{font-size:12px;font-weight:700}
+  .tile span{font-size:10px;font-family:var(--font-mono);opacity:.7}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="tile" style="background:var(--surface-page);color:var(--text-strong)"><b>page</b><span>stone-50</span></div>
+    <div class="tile" style="background:var(--surface-card);color:var(--text-strong)"><b>card</b><span>white</span></div>
+    <div class="tile" style="background:var(--surface-inverse);color:#fff"><b>inverse</b><span>green-900</span></div>
+    <div class="tile" style="background:var(--glass-light);color:var(--text-strong);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));border:1px solid rgba(255,255,255,.5)"><b>glass</b><span>blur 16px</span></div>
+  </div>
+</body></html>

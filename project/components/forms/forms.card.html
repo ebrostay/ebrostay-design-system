@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Forms — Input, Select, Checkbox, Switch" subtitle="Fields with focus ring, hints & error states" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:24px;color:var(--text-body)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;max-width:640px}
+  .stack{display:flex;flex-direction:column;gap:16px}
+</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+  const { Input, Select, Checkbox, Switch } = window.EbrostayDesignSystem_8b1b13;
+  const I = (n) => <i data-lucide={n}></i>;
+  function Demo(){
+    const [c1,setC1]=React.useState(true);const [c2,setC2]=React.useState(false);
+    const [s1,setS1]=React.useState(true);
+    return (
+      <div className="grid">
+        <Input label="Where to?" icon={I('map-pin')} placeholder="Zaragoza, Spain" defaultValue="Zaragoza" />
+        <Select label="Guests" defaultValue="2">
+          <option value="1">1 guest</option><option value="2">2 guests</option><option value="4">4 guests</option>
+        </Select>
+        <Input label="Email" type="email" defaultValue="hola@" error="Enter a valid email" />
+        <Input label="Phone" icon={I('phone')} placeholder="+34 …" hint="For check-in details only" />
+        <div className="stack">
+          <Checkbox label="Free cancellation" checked={c1} onChange={setC1} />
+          <Checkbox label="Instant book" checked={c2} onChange={setC2} />
+        </div>
+        <div className="stack">
+          <Switch label="Superhost stays only" checked={s1} onChange={setS1} />
+          <Switch label="Pet friendly" checked={false} onChange={()=>{}} />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+  setTimeout(()=>window.lucide && window.lucide.createIcons(), 60);
+</script>
+</body></html>

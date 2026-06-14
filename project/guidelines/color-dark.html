@@ -1,0 +1,18 @@
+<!-- @dsCard group="Colors" viewport="700x200" name="Dark theme" subtitle="data-theme=dark — warm near-black surfaces" -->
+<!doctype html><html data-theme="dark"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface-page);padding:18px}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .tile{height:96px;border-radius:var(--radius-lg);border:var(--hairline);display:flex;flex-direction:column;justify-content:flex-end;padding:10px}
+  .tile b{font-size:11px;font-weight:600;color:var(--text-strong)}
+  .tile span{font-size:10px;font-family:var(--font-mono);color:var(--text-muted)}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="tile" style="background:var(--surface-page)"><b>page</b><span>#15140f</span></div>
+    <div class="tile" style="background:var(--surface-card)"><b>card</b><span>#1f1d17</span></div>
+    <div class="tile" style="background:var(--surface-raised)"><b>raised</b><span>#26241d</span></div>
+    <div class="tile" style="background:var(--brand);border:0"><b style="color:#fff">brand</b><span style="color:rgba(255,255,255,.7)">green-500</span></div>
+    <div class="tile" style="background:var(--surface-brand-soft)"><b style="color:var(--text-brand)">brand soft</b><span>tint</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Product — PropertyCard, SearchBar, Amenity" subtitle="The signature listing, search & amenity primitives" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface-page);padding:24px;color:var(--text-body)}
+  .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-subtle);margin:0 0 12px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .amen{display:flex;gap:28px;flex-wrap:wrap;margin-top:20px}
+</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+  const { PropertyCard, SearchBar, AmenityChip } = window.EbrostayDesignSystem_8b1b13;
+  const I = (n) => <i data-lucide={n}></i>;
+  function Demo(){
+    return (<>
+      <p className="lbl">SearchBar</p>
+      <SearchBar where="Zaragoza" checkIn="12 Jun" checkOut="15 Jun" guests="2 guests" />
+      <p className="lbl" style={{marginTop:24}}>PropertyCard</p>
+      <div className="cards">
+        <PropertyCard image="https://picsum.photos/seed/ebro-tubo/600/520" badge="Superhost"
+          title="Sunny loft in El Tubo" location="Casco Histórico" rating={4.92} reviews={88} note="Free cancellation" price={118} />
+        <PropertyCard image="https://picsum.photos/seed/ebro-pilar/600/520" badge="New" badgeTone="accent"
+          title="Studio by the Basilica" location="El Pilar" rating={4.8} reviews={31} price={92} />
+        <PropertyCard image="https://picsum.photos/seed/ebro-river/600/520"
+          title="River-view flat" location="Las Fuentes" rating={4.87} reviews={64} price={134} favorite />
+      </div>
+      <p className="lbl" style={{marginTop:24}}>AmenityChip</p>
+      <div className="amen">
+        <AmenityChip icon={I('wifi')} label="Fast Wi-Fi" />
+        <AmenityChip icon={I('utensils')} label="Full kitchen" />
+        <AmenityChip icon={I('wind')} label="Air conditioning" />
+        <AmenityChip icon={I('car')} label="Free parking" />
+      </div>
+    </>);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+  setTimeout(()=>window.lucide && window.lucide.createIcons(), 60);
+</script>
+</body></html>

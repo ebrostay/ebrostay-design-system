@@ -1,0 +1,19 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Semantic feedback" subtitle="Success, warning, danger, info + soft fills" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:18px;color:var(--text-body)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .item{border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden}
+  .bar{height:48px}
+  .meta{display:flex;align-items:center;gap:8px;padding:10px 12px}
+  .meta b{font-size:13px;color:var(--text-strong);text-transform:capitalize}
+  .pill{font-size:10px;font-family:var(--font-mono);padding:2px 7px;border-radius:var(--radius-pill)}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="item"><div class="bar" style="background:var(--success)"></div><div class="meta"><b>success</b><span class="pill" style="background:var(--success-soft);color:var(--green-700)">soft</span></div></div>
+    <div class="item"><div class="bar" style="background:var(--warning)"></div><div class="meta"><b>warning</b><span class="pill" style="background:var(--warning-soft);color:#7a5410">soft</span></div></div>
+    <div class="item"><div class="bar" style="background:var(--danger)"></div><div class="meta"><b>danger</b><span class="pill" style="background:var(--danger-soft);color:#8f2a2a">soft</span></div></div>
+    <div class="item"><div class="bar" style="background:var(--info)"></div><div class="meta"><b>info</b><span class="pill" style="background:var(--info-soft);color:#1d5396">soft</span></div></div>
+  </div>
+</body></html>
