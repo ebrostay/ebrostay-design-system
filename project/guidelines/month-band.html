@@ -14,6 +14,8 @@
   .m{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
   .bar{height:6px;width:100%;border-radius:var(--radius-pill)}
   .m span{font-size:9px;text-transform:uppercase;color:var(--muted)}
+  .ytick{width:1px;align-self:stretch;background:var(--line-strong)}
+  .m .yr{font-size:8px;text-transform:none;opacity:.75;margin-top:-2px}
   .days{display:flex;gap:6px}
   .day{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:6px}
   .dlbl{font-size:9px;color:var(--muted);text-align:center;margin-top:4px;font-family:var(--font-mono)}
@@ -46,20 +48,21 @@
     <div>
       <p class="lbl">Availability band — 3 states</p>
       <div class="avail" role="img" aria-label="7 de 12 meses libres, 1 parcial">
-        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">s</span></div>
-        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">o</span></div>
-        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">n</span></div>
-        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">d</span></div>
-        <div class="m"><div class="bar" style="background:linear-gradient(90deg, var(--occupied) 50%, var(--river) 50%)"></div><span class="data">e</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">f</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">m</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">a</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">m</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">j</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">j</span></div>
-        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">a</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">sep</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">oct</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">nov</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">dic</span></div>
+        <div class="ytick" aria-hidden="true"></div>
+        <div class="m"><div class="bar" style="background:linear-gradient(90deg, var(--occupied) 50%, var(--river) 50%)"></div><span class="data">ene</span><span class="data yr">’27</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">feb</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">mar</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">abr</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">may</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">jun</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">jul</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">ago</span></div>
       </div>
-      <p class="note" style="margin-top:10px">Stays start mid-month, so a binary band would lie: <b>split cell = partially booked</b>. The band is a glanceable summary — day-level truth lives in the calendar.</p>
+      <p class="note" style="margin-top:10px">Stays start mid-month, so a binary band would lie: <b>split cell = partially booked</b>. Labels are 3-letter localized months; a hairline tick + <span class="data">’27</span> mark the year boundary (single letters were ambiguous — J = ene/jun/jul). The band is a glanceable summary — day-level truth lives in the calendar.</p>
     </div>
     <div>
       <p class="lbl">Calendar day states</p>
