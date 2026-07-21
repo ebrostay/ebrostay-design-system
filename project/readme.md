@@ -11,7 +11,7 @@
 - **Name / mark** — "Ebrostay", the **bridge over the Ebro**: a minimal green arch over a soft-blue water fill. The wordmark sets "Ebrostay" as one word, two-tone (dark "Ebro" + green "stay"). The whole v2 palette derives from this mark: the green stone bridge, the blue river.
 - **Concept** — *the calm ledger of a stay*. Mid-term rentals are contracts measured in whole months; the design speaks that language — disciplined ledger rules, tabular numerals, month units made tangible. Warmth comes from the photography; the UI stays cool, precise, and trustworthy.
 - **Primary color** — bridge green `#1f8a57`. **Second hue** — river blue `#9cc4f0` (open / informational; it replaced v1's terracotta accent). **Neutrals** — cool limestone; ink is green-black `#15251f`.
-- **Type** — Bricolage Grotesque (display), Onest (body), Spline Sans Mono (data).
+- **Type** — Familjen Grotesk (display), Onest (body), Spline Sans Mono (data).
 
 **Availability semantics — system-wide and non-negotiable:**
 
@@ -52,7 +52,7 @@ A month is rarely binary — stays start mid-month — so availability bands sho
 
 **Imagery.** Photography-led — real property and Zaragoza photos carry the emotion. Photos sit in `--radius-card` (14px) containers. Where text overlays a photo, use `--overlay` (ink-tinted), never black.
 
-**Type.** Display set in **Bricolage Grotesque**, tracking −0.015em, tight leading; v2 headlines may sit at **700** (unlike v1's airy 600) — Bricolage carries weight without shouting. UI headings stay 600. **Onest** 400 for body. **Spline Sans Mono** is the **data voice** (class `.data`): prices, dates, month labels, section eyebrows — always with tabular numerals so ledgers align. Display sizes are **fluid** (`clamp()`, `--text-2xl`…`--text-6xl`, each with a paired line-height token) — proven v1 tuning that the v2 app adopted.
+**Type.** Display set in **Familjen Grotesk** (chosen 2026-07-22 via side-by-side; replaced Bricolage — v1's display face — for a distinct form), tracking −0.015em, tight leading; v2 headlines may sit at **700** (unlike v1's airy 600) — Familjen carries weight without shouting. UI headings stay 600. **Onest** 400 for body. **Spline Sans Mono** is the **data voice** (class `.data`): prices, dates, month labels, section eyebrows — always with tabular numerals so ledgers align. Display sizes are **fluid** (`clamp()`, `--text-2xl`…`--text-6xl`, each with a paired line-height token) — proven v1 tuning that the v2 app adopted.
 
 **The signature: the month-band.** An 11-cell strip — the product's whole domain (1–11 month stays) made physical. Two forms: the **stay-length selector** (cells 1–N green, rest river-wash; radiogroup semantics) and the **availability band** (a listing's next 12 months as thin bars — river = fully open, split river/occupied = partially booked, occupied-solid = taken). The band is a glanceable *summary*; day-level truth lives in the range calendar, which shares the same color language (selected span = green, booked day = occupied-solid with a diagonal slash drawn behind the number, today = river underline). **Restraint rule:** the band appears only where it carries data — hero selector, cards, calendars. It is not a decorative divider.
 
@@ -102,7 +102,7 @@ A month is rarely binary — stays start mid-month — so availability bands sho
 
 ## CAVEATS
 
-- **Fonts load via Google Fonts CDN** (`tokens/fonts.css` `@import`), not self-hosted `.woff2` files. For production, self-host Bricolage Grotesque / Onest / Spline Sans Mono — the ebrostay-home app already does (via `next/font/google`, CSP-friendly).
+- **Fonts load via Google Fonts CDN** (`tokens/fonts.css` `@import`), not self-hosted `.woff2` files. For production, self-host Familjen Grotesk / Onest / Spline Sans Mono — the ebrostay-home app already does (via `next/font/google`, CSP-friendly).
 - **The v1 token names** (`--stone-*`, `--clay-*`, `--text-strong`, `--surface-card`, `--radius-sm…2xl`, `--shadow-xs…xl`, …) still resolve — they are **compatibility aliases only**, kept so legacy pages and kits render. Do not use them in new work.
 - **Components and UI kits are v1-styled** — feature checklists, not styling sources (see above).
 - **Imagery is placeholder** (`picsum.photos`) in the legacy kits. Swap in real Zaragoza property photography.

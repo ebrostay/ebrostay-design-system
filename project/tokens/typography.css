@@ -1,6 +1,6 @@
 /* ============================================================
    EBROSTAY — TYPOGRAPHY TOKENS (v2)
-   Display: Bricolage Grotesque (headlines, card titles)
+   Display: Familjen Grotesk (headlines, card titles; replaced Bricolage 2026-07-22)
    UI/Body: Onest (everything else)
    Data:    Spline Sans Mono (prices, dates, month labels,
             section eyebrows — the "data voice", see .data)
@@ -8,7 +8,7 @@
 
 :root {
   /* Families */
-  --font-display: "Bricolage Grotesque", "Onest", system-ui, sans-serif;
+  --font-display: "Familjen Grotesk", "Onest", system-ui, sans-serif;
   --font-sans:    "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono:    "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -43,7 +43,7 @@
 
   /* Semantic weight roles — v2 runs 600–700.
      Unlike v1's airy 600-everywhere, v2 headlines may sit at 700:
-     Bricolage carries weight without shouting, and the ledger voice
+     Familjen carries weight without shouting, and the ledger voice
      wants firm, not floaty. Headings inside UI stay at 600. */
   --weight-display:  700;
   --weight-heading:  600;
