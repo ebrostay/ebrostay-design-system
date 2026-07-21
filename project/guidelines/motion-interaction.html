@@ -1,36 +1,39 @@
-<!-- @dsCard group="Spacing" viewport="700x150" name="Motion & interaction" subtitle="Skeleton, scroll-reveal, focus-visible — reduced-motion safe" -->
+<!-- @dsCard group="Motion" viewport="700x190" name="Motion & interaction" subtitle="150ms everywhere; ONE orchestrated moment — the month-band stagger" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:22px;color:var(--text-body)}
-  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start}
-  .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-subtle);margin:0 0 12px}
-  .sk{display:flex;flex-direction:column;gap:8px}
-  .btn{height:44px;padding:0 18px;border:none;border-radius:var(--radius-md);background:var(--brand);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:var(--text-base);cursor:pointer}
-  .easings{display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted)}
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:22px;color:var(--body-text)}
+  .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;align-items:start}
+  .lbl{font-size:10px;font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 12px}
+  .band{display:flex;gap:3px}
+  .cell{flex:1;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px}
+  .btn{height:40px;padding:0 16px;border:none;border-radius:var(--radius-control);background:var(--brand);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:var(--text-sm);cursor:pointer;transition:background var(--dur-standard)}
+  .btn:hover{background:var(--brand-strong)}
+  .focused{outline:2px solid var(--ring);outline-offset:2px}
+  .small{font-size:11px;color:var(--muted);margin-top:10px}
 </style></head>
 <body>
   <div class="grid">
     <div>
-      <p class="lbl">Skeleton</p>
-      <div class="sk">
-        <div class="ebr-skeleton" style="height:80px;border-radius:var(--radius-lg)"></div>
-        <div class="ebr-skeleton" style="height:14px;width:80%"></div>
-        <div class="ebr-skeleton" style="height:14px;width:55%"></div>
+      <p class="lbl">The one moment</p>
+      <div class="band">
+        <div class="cell month-cell-enter" style="--cell-index:0;background:var(--brand);color:#fff">1</div>
+        <div class="cell month-cell-enter" style="--cell-index:1;background:var(--brand);color:#fff">2</div>
+        <div class="cell month-cell-enter" style="--cell-index:2;background:var(--brand);color:#fff">3</div>
+        <div class="cell month-cell-enter" style="--cell-index:3;background:var(--river-soft);color:var(--river-deep)">4</div>
+        <div class="cell month-cell-enter" style="--cell-index:4;background:var(--river-soft);color:var(--river-deep)">5</div>
+        <div class="cell month-cell-enter" style="--cell-index:5;background:var(--river-soft);color:var(--river-deep)">6</div>
       </div>
+      <p class="small"><span style="font-family:var(--font-mono)">.month-cell-enter</span> — 350ms rise, 35ms stagger per cell. The month-band entrance is the design's only choreography.</p>
     </div>
     <div>
-      <p class="lbl">Focus-visible</p>
-      <button class="btn" style="box-shadow:var(--ring-focus)">Tab-focused</button>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:12px">3px green ring, keyboard-only.</p>
+      <p class="lbl">Everything else</p>
+      <button class="btn">Solicitar reserva</button>
+      <p class="small">Hover, press, theme — one flat <b>150ms</b> transition (<span style="font-family:var(--font-mono)">--dur-standard</span>). No lifts, no springs, no scroll reveals.</p>
     </div>
     <div>
-      <p class="lbl">Easings</p>
-      <div class="easings">
-        <span>--ease-out · entrances</span>
-        <span>--ease-spring · toggles</span>
-        <span>--dur-fast 120 / base 200 / slow 360</span>
-        <span style="color:var(--text-brand)">.ebr-reveal · scroll-in</span>
-      </div>
+      <p class="lbl">Focus &amp; reduced motion</p>
+      <button class="btn focused" style="background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)">Tab-focused</button>
+      <p class="small">2px river ring, offset 2, <span style="font-family:var(--font-mono)">:focus-visible</span> only — never removed. <span style="font-family:var(--font-mono)">prefers-reduced-motion</span> kills the stagger, the skeleton sweep and all transitions.</p>
     </div>
   </div>
 </body></html>

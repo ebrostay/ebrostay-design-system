@@ -1,31 +1,63 @@
 /* ============================================================
-   EBROSTAY — UTILITIES
-   Cross-cutting interaction primitives: accessible focus rings,
-   skeleton loaders, and scroll-reveal entrances. All motion is
+   EBROSTAY — UTILITIES (v2)
+   Cross-cutting primitives: the ledger rule, the data voice,
+   focus, selection, skeleton, and the month-band entrance —
+   the design's one orchestrated motion moment. All motion is
    gated on prefers-reduced-motion.
    ============================================================ */
 
-/* ---- Smooth, modern base behaviours ---- */
+/* ---- Base behaviours ---- */
 * { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 html { scroll-behavior: smooth; }
-::selection { background: var(--green-200); color: var(--green-900); }
 
-/* ---- Focus: only show the ring for keyboard users ---- */
-:focus { outline: none; }
-:focus-visible {
-  outline: none;
-  box-shadow: var(--ring-focus);
-  border-radius: var(--radius-sm);
+/* Selection is open water: river wash, ink text. The ink literal is
+   deliberate — on dark the river stays light, so the text must stay
+   green-black rather than follow the flipped --ink. */
+::selection { background: var(--river); color: #15251f; }
+
+/* ---- Focus: 2px river ring, offset, keyboard-visible only ---- */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
 }
 
-/* ---- Skeleton loader ---- */
-.ebr-skeleton {
+/* ---- Ledger rule — hairline + small-caps mono label, the section
+   voice. Labels are content words, never fake numbering.
+   <div class="ledger-rule"><span>viviendas</span></div> ---- */
+.ledger-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+}
+.ledger-rule::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+.ledger-rule > span {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-ledger);
+  text-transform: uppercase;
+}
+
+/* ---- Data voice: prices, dates, month labels ---- */
+.data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Skeleton loader — ink-tinted sweep over surface-2 ---- */
+.skeleton {
   position: relative;
   overflow: hidden;
-  background: var(--surface-sunken);
-  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  border-radius: var(--radius-control);
 }
-.ebr-skeleton::after {
+.skeleton::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -33,19 +65,29 @@ html { scroll-behavior: smooth; }
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.55),
+    color-mix(in oklab, var(--ink) 7%, transparent),
     transparent
   );
-  animation: ebr-shimmer 1.4s ease-in-out infinite;
+  animation: skeleton-sweep 1.4s ease-in-out infinite;
 }
-[data-theme="dark"] .ebr-skeleton::after {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
-}
-@keyframes ebr-shimmer {
-  100% { transform: translateX(100%); }
+@keyframes skeleton-sweep {
+  to { transform: translateX(100%); }
 }
 
-/* ---- Scroll-reveal ---- */
+/* ---- Month-band entrance — the ONE orchestrated moment.
+   Set --cell-index (0-based) on each cell. ---- */
+@keyframes month-rise {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.month-cell-enter {
+  animation: month-rise var(--dur-band) var(--ease-band) both;
+  animation-delay: calc(var(--cell-index) * var(--stagger-band));
+}
+
+/* ---- v1 COMPATIBILITY: scroll-reveal (legacy pages/ui_kits only —
+   ui_kits/website/Home.jsx still queries .ebr-reveal). Not part of
+   the v2 language; do not use in new work. ---- */
 .ebr-reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -58,17 +100,18 @@ html { scroll-behavior: smooth; }
   opacity: 1;
   transform: none;
 }
-/* Stagger helper: set --i on children of a .ebr-reveal-group */
 .ebr-reveal[style*="--i"] { transition-delay: calc(var(--i, 0) * 70ms); }
 
-/* ---- Respect reduced motion ---- */
+/* ---- Respect reduced motion — disables the sweep, the band
+   entrance, the legacy reveal, and all transitions ---- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .month-cell-enter { animation: none; }
+  .skeleton::after { animation: none; }
   .ebr-reveal { opacity: 1 !important; transform: none !important; transition: none; }
-  .ebr-skeleton::after { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

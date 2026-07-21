@@ -1,18 +1,33 @@
-<!-- @dsCard group="Colors" viewport="700x180" name="Surfaces & glass" subtitle="Page, card, inverse + transparency/blur overlays" -->
+<!-- @dsCard group="Colors" viewport="700x200" name="Surfaces" subtitle="Limestone page, white card, surface-2 — both themes" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);padding:18px;
-    background:linear-gradient(120deg,#1f8a57,#0e4730)}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .tile{height:120px;border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;box-shadow:var(--shadow-md)}
-  .tile b{font-size:12px;font-weight:700}
-  .tile span{font-size:10px;font-family:var(--font-mono);opacity:.7}
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:18px}
+  .half{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .panel{border-radius:var(--radius-card);padding:12px;background:var(--page);border:1px solid var(--line)}
+  .panel h4{margin:0 0 8px;font-size:10px;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tile{height:88px;border-radius:var(--radius-control);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:8px 10px;color:var(--ink)}
+  .tile b{font-size:10.5px;font-weight:600}
+  .tile span{font-size:9.5px;font-family:var(--font-mono);color:var(--muted)}
 </style></head>
 <body>
-  <div class="grid">
-    <div class="tile" style="background:var(--surface-page);color:var(--text-strong)"><b>page</b><span>stone-50</span></div>
-    <div class="tile" style="background:var(--surface-card);color:var(--text-strong)"><b>card</b><span>white</span></div>
-    <div class="tile" style="background:var(--surface-inverse);color:#fff"><b>inverse</b><span>green-900</span></div>
-    <div class="tile" style="background:var(--glass-light);color:var(--text-strong);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));border:1px solid rgba(255,255,255,.5)"><b>glass</b><span>blur 16px</span></div>
+  <div class="half">
+    <div class="panel">
+      <h4>light</h4>
+      <div class="tiles">
+        <div class="tile" style="background:var(--page)"><b>page</b><span>#f6f8f6</span></div>
+        <div class="tile" style="background:var(--surface)"><b>surface</b><span>#ffffff</span></div>
+        <div class="tile" style="background:var(--surface-2)"><b>surface-2</b><span>#eef2ee</span></div>
+      </div>
+    </div>
+    <div class="panel" data-theme="dark">
+      <h4>dark</h4>
+      <div class="tiles">
+        <div class="tile" style="background:var(--page)"><b>page</b><span>#0f1713</span></div>
+        <div class="tile" style="background:var(--surface)"><b>surface</b><span>#16201b</span></div>
+        <div class="tile" style="background:var(--surface-2)"><b>surface-2</b><span>#1d2a23</span></div>
+      </div>
+    </div>
   </div>
+  <p style="margin:11px 2px 0;font-size:11px;color:var(--muted)">Three surfaces, one ladder: page under everything, white (or green-charcoal) cards on top, surface-2 for wells, skeletons and sunken fields. Photo overlays use <span style="font-family:var(--font-mono)">--overlay</span>, not black.</p>
 </body></html>

@@ -1,18 +1,20 @@
-<!-- @dsCard group="Colors" viewport="700x200" name="Dark theme" subtitle="data-theme=dark — warm near-black surfaces" -->
+<!-- @dsCard group="Colors" viewport="700x200" name="Dark theme" subtitle="data-theme=dark — green-charcoal, lifted brand, translucent hairlines" -->
 <!doctype html><html data-theme="dark"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);background:var(--surface-page);padding:18px}
+  body{margin:0;font-family:var(--font-sans);background:var(--page);padding:18px}
   .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-  .tile{height:96px;border-radius:var(--radius-lg);border:var(--hairline);display:flex;flex-direction:column;justify-content:flex-end;padding:10px}
-  .tile b{font-size:11px;font-weight:600;color:var(--text-strong)}
-  .tile span{font-size:10px;font-family:var(--font-mono);color:var(--text-muted)}
+  .tile{height:92px;border-radius:var(--radius-control);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:9px 11px}
+  .tile b{font-size:11px;font-weight:600;color:var(--ink)}
+  .tile span{font-size:10px;font-family:var(--font-mono);color:var(--muted)}
+  .note{margin:12px 2px 0;font-size:11px;color:var(--muted)}
 </style></head>
 <body>
   <div class="grid">
-    <div class="tile" style="background:var(--surface-page)"><b>page</b><span>#15140f</span></div>
-    <div class="tile" style="background:var(--surface-card)"><b>card</b><span>#1f1d17</span></div>
-    <div class="tile" style="background:var(--surface-raised)"><b>raised</b><span>#26241d</span></div>
-    <div class="tile" style="background:var(--brand);border:0"><b style="color:#fff">brand</b><span style="color:rgba(255,255,255,.7)">green-500</span></div>
-    <div class="tile" style="background:var(--surface-brand-soft)"><b style="color:var(--text-brand)">brand soft</b><span>tint</span></div>
+    <div class="tile" style="background:var(--page)"><b>page</b><span>#0f1713</span></div>
+    <div class="tile" style="background:var(--surface)"><b>surface</b><span>#16201b</span></div>
+    <div class="tile" style="background:var(--brand);border:0"><b style="color:#fff">brand</b><span style="color:rgba(255,255,255,.75)">#35a873 · lifted</span></div>
+    <div class="tile" style="background:var(--occupied);border:0"><b style="color:var(--inverse)">occupied</b><span style="color:var(--inverse);opacity:.7">#46554d</span></div>
+    <div class="tile" style="background:var(--river-soft)"><b style="color:var(--river-deep)">river-soft</b><span>#182634</span></div>
   </div>
+  <p class="note">Green-charcoal, not warm black. Hairlines go translucent (<span style="font-family:var(--font-mono)">rgba(232,239,234,.1)</span>) — opaque lines glare on dark. Brand and ring lift a step for contrast; <b>occupied</b> has its own dark value, never derived from the flipped ink.</p>
 </body></html>

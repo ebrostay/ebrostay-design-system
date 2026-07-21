@@ -1,35 +1,130 @@
 /* ============================================================
-   EBROSTAY — COLOR TOKENS
-   Mediterranean hospitality palette: fresh Ebro green primary,
-   warm terracotta/amber secondary, warm stone neutrals.
+   EBROSTAY — COLOR TOKENS (v2 — "the calm ledger of a stay")
+   Logo-derived palette: bridge green + river blue over cool
+   limestone; ink is green-black. Availability semantics are
+   system-wide and non-negotiable:
+     river = open · bridge green = selected/yours · occupied = taken
+   No terracotta/clay — v1's warm accent was deliberately dropped;
+   photography carries the warmth, the UI stays cool and precise.
    ============================================================ */
 
 :root {
-  /* ---- Brand green (primary) — trust, nature, the river ---- */
+  /* ---- Surfaces — cool limestone ---- */
+  --page:      #f6f8f6;
+  --surface:   #ffffff;
+  --surface-2: #eef2ee;
+  --overlay:   rgba(21, 37, 31, 0.55);
+
+  /* ---- Text — green-black ink ---- */
+  --ink:       #15251f;
+  --body-text: #3d4f47;
+  --muted:     #68786f;
+  --inverse:   #f6f8f6;
+
+  /* ---- Brand — the logo's bridge green ---- */
+  --brand:        #1f8a57;   /* actions, selected */
+  --brand-strong: #157047;   /* hover / AA text on light */
+  --brand-soft:   #e3f2e9;   /* selected wash */
+
+  /* ---- River — the logo's Ebro ---- */
+  --river:      #9cc4f0;   /* open, informational ("open water") */
+  --river-deep: #4a7fb5;   /* readable river for text/icons */
+  --river-soft: #e9f1fa;   /* open-month wash, info surfaces */
+
+  /* ---- Lines & focus ---- */
+  --line:        #dbe2db;
+  --line-strong: #b9c4bb;
+  --ring:        #4a7fb5;
+
+  /* Availability: a month that is taken. Solid and closed in BOTH
+     themes — never derive from --ink, which flips with the theme. */
+  --occupied: #26362e;
+
+  /* ---- Status — reserved for review/rejection states ---- */
+  --ok:          #1f8a57;
+  --warn:        #b07c10;
+  --danger:      #b23f3f;
+  --warn-soft:   #f7ecd4;
+  --danger-soft: #f7e3e3;
+  --star:        #e6a52a;  /* rating gold (river-deep serves the "info" role) */
+}
+
+/* ============================================================
+   DARK THEME — set data-theme="dark" on <html> (or any ancestor;
+   guideline pages use scoped panels). Green-charcoal, not warm
+   black: lifted brand and translucent hairlines keep the ledger
+   legible at night.
+   ============================================================ */
+[data-theme="dark"] {
+  --page:      #0f1713;
+  --surface:   #16201b;
+  --surface-2: #1d2a23;
+  --overlay:   rgba(4, 8, 6, 0.66);
+
+  --ink:       #e8efea;
+  --body-text: #b9c7bf;
+  --muted:     #83958a;
+  --inverse:   #15251f;
+
+  --brand:        #35a873;
+  --brand-strong: #4dbd88;
+  --brand-soft:   #17362a;
+
+  --river:      #9cc4f0;
+  --river-deep: #8ab4e4;
+  --river-soft: #182634;
+
+  /* Translucent hairlines read better than opaque lines on dark */
+  --line:        rgba(232, 239, 234, 0.1);
+  --line-strong: rgba(232, 239, 234, 0.24);
+  --ring:        #8ab4e4;
+
+  --occupied: #46554d;
+
+  --ok:          #35a873;
+  --warn:        #d8a83a;
+  --danger:      #d76a6a;
+  --warn-soft:   #33290f;
+  --danger-soft: #351a1a;
+  --star:        #edb23e;
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   v1 COMPATIBILITY ALIASES (legacy pages/ui_kits)
+   Everything below exists ONLY so v1-era artifacts still render:
+   guidelines/brand-voice.html, guidelines/brand-logo.html,
+   guidelines/logo-bridge-water.html, "Ebrostay Website.html",
+   components/, ui_kits/. DO NOT use these names in new work —
+   use the v2 tokens above.
+   ============================================================ */
+:root {
+  /* -- Raw v1 scales, kept literal (legacy swatches/tints) -- */
   --green-50:  #ecf6ef;
   --green-100: #d2ebda;
   --green-200: #a6d6b8;
   --green-300: #71bd91;
   --green-400: #43a06f;
-  --green-500: #1f8a57;   /* brand */
+  --green-500: #1f8a57;
   --green-600: #157047;
   --green-700: #115a3a;
   --green-800: #0e4730;
   --green-900: #0a3324;
 
-  /* ---- Terracotta / amber (secondary) — Aragón sun & brick ---- */
+  /* v1's clay accent is DEAD in v2 (the river replaces it). Kept
+     literal so legacy kits keep their v1 look, as their banners say. */
   --clay-50:  #fdf3ec;
   --clay-100: #fbe2d1;
   --clay-200: #f6c2a1;
   --clay-300: #ef9e6e;
   --clay-400: #e87f45;
-  --clay-500: #d9632a;    /* accent */
+  --clay-500: #d9632a;
   --clay-600: #b84e20;
   --clay-700: #93401f;
   --clay-800: #6f331c;
   --clay-900: #4a2414;
 
-  /* ---- Warm stone neutrals ---- */
   --stone-0:   #ffffff;
   --stone-50:  #faf9f6;
   --stone-100: #f4f2ec;
@@ -42,131 +137,69 @@
   --stone-800: #2a2722;
   --stone-900: #1a1814;
 
-  /* ---- Raw semantic hues ---- */
-  --blue-500:   #2f74cc;
-  --blue-50:    #e9f1fb;
-  --amber-500:  #d99412;
-  --amber-50:   #fbf2dc;
-  --red-500:    #cf4040;
-  --red-50:     #fbeaea;
+  --blue-500:  #2f74cc;
+  --blue-50:   #e9f1fb;
+  --amber-500: #d99412;
+  --amber-50:  #fbf2dc;
+  --red-500:   #cf4040;
+  --red-50:    #fbeaea;
 
-  /* ============================================================
-     SEMANTIC ALIASES — use these in components, not raw scales
-     ============================================================ */
-
-  /* Text */
-  --text-strong:  var(--stone-900);
-  --text-body:    var(--stone-700);
-  --text-muted:   var(--stone-500);
-  --text-subtle:  var(--stone-400);
-  --text-inverse: var(--stone-0);
-  --text-brand:   var(--green-600);
+  /* -- v1 semantic names → closest v2 value (theme-following) -- */
+  --text-strong:  var(--ink);
+  --text-body:    var(--body-text);
+  --text-muted:   var(--muted);
+  --text-subtle:  var(--muted);
+  --text-inverse: var(--inverse);
+  --text-brand:   var(--brand-strong);
   --text-onbrand: #ffffff;
 
-  /* Surfaces */
-  --surface-page:    var(--stone-50);
-  --surface-card:    var(--stone-0);
-  --surface-raised:  var(--stone-0);
-  --surface-sunken:  var(--stone-100);
-  --surface-inverse: var(--green-900);
-  --surface-brand:   var(--green-500);
-  --surface-brand-soft: var(--green-50);
-  --surface-accent:  var(--clay-500);
+  --surface-page:       var(--page);
+  --surface-card:       var(--surface);
+  --surface-raised:     var(--surface);
+  --surface-sunken:     var(--surface-2);
+  --surface-inverse:    var(--ink);
+  --surface-brand:      var(--brand);
+  --surface-brand-soft: var(--brand-soft);
+  --surface-accent:      var(--clay-500);  /* legacy clay — see note above */
   --surface-accent-soft: var(--clay-50);
 
-  /* Glass — transparency / blur surfaces */
   --glass-light:  rgba(255, 255, 255, 0.72);
   --glass-strong: rgba(255, 255, 255, 0.88);
   --glass-dark:   rgba(20, 24, 20, 0.42);
   --glass-blur:   16px;
 
-  /* Borders */
-  --border-subtle:  var(--stone-200);
-  --border-default: var(--stone-300);
-  --border-strong:  var(--stone-400);
-  --border-brand:   var(--green-500);
+  --border-subtle:  var(--line);
+  --border-default: var(--line-strong);
+  --border-strong:  var(--line-strong);
+  --border-brand:   var(--brand);
 
-  /* Brand actions */
-  --brand:         var(--green-500);
-  --brand-hover:   var(--green-600);
-  --brand-active:  var(--green-700);
-  --brand-soft:    var(--green-50);
-  --accent:        var(--clay-500);
-  --accent-hover:  var(--clay-600);
-  --accent-soft:   var(--clay-50);
+  --brand-hover:  var(--brand-strong);
+  --brand-active: var(--brand-strong);
+  --accent:       var(--clay-500);
+  --accent-hover: var(--clay-600);
+  --accent-soft:  var(--clay-50);
 
-  /* Semantic feedback */
-  --success:      var(--green-500);
-  --success-soft: var(--green-50);
-  --warning:      var(--amber-500);
-  --warning-soft: var(--amber-50);
-  --danger:       var(--red-500);
-  --danger-soft:  var(--red-50);
-  --info:         var(--blue-500);
-  --info-soft:    var(--blue-50);
+  --success:      var(--ok);
+  --success-soft: var(--brand-soft);
+  --warning:      var(--warn);
+  --warning-soft: var(--warn-soft);
+  --info:         var(--river-deep);
+  --info-soft:    var(--river-soft);
 
-  /* Focus */
-  --focus-ring: rgba(31, 138, 87, 0.40);
-
-  /* Star rating */
-  --star: #e6a52a;
+  /* v1's 3px box-shadow focus ring, retinted to the v2 river ring */
+  --focus-ring: color-mix(in oklab, var(--ring) 40%, transparent);
 }
 
-/* ============================================================
-   DARK THEME — set data-theme="dark" on <html> (or any ancestor).
-   Overrides the semantic aliases only; the raw scales stay fixed.
-   Warm near-black surfaces keep the Mediterranean warmth at night.
-   ============================================================ */
 [data-theme="dark"] {
-  /* Text */
-  --text-strong:  #f5f3ee;
-  --text-body:    #d8d2c6;
-  --text-muted:   #a7a08f;
-  --text-subtle:  #7f7868;
-  --text-inverse: #1a1814;
-  --text-brand:   var(--green-300);
-  --text-onbrand: #ffffff;
-
-  /* Surfaces */
-  --surface-page:       #15140f;
-  --surface-card:       #1f1d17;
-  --surface-raised:     #26241d;
-  --surface-sunken:     #1a1813;
-  --surface-inverse:    #f5f3ee;
-  --surface-brand:      var(--green-500);
-  --surface-brand-soft: rgba(67, 160, 111, 0.16);
-  --surface-accent:     var(--clay-500);
-  --surface-accent-soft: rgba(232, 127, 69, 0.16);
-
-  /* Glass */
-  --glass-light:  rgba(31, 29, 23, 0.60);
-  --glass-strong: rgba(31, 29, 23, 0.82);
+  /* The aliases above follow the theme automatically through v2
+     vars; only literal-valued legacy tokens need dark values. */
+  --glass-light:  rgba(22, 32, 27, 0.60);
+  --glass-strong: rgba(22, 32, 27, 0.82);
   --glass-dark:   rgba(0, 0, 0, 0.5);
 
-  /* Borders — translucent hairlines read better on dark */
-  --border-subtle:  rgba(245, 243, 238, 0.09);
-  --border-default: rgba(245, 243, 238, 0.15);
-  --border-strong:  rgba(245, 243, 238, 0.26);
-  --border-brand:   var(--green-400);
-
-  /* Brand actions */
-  --brand:        var(--green-500);
-  --brand-hover:  var(--green-400);
-  --brand-active: var(--green-300);
-  --brand-soft:   rgba(67, 160, 111, 0.16);
   --accent:       var(--clay-400);
   --accent-hover: var(--clay-300);
   --accent-soft:  rgba(232, 127, 69, 0.16);
-
-  /* Semantic soft fills — tints over dark */
-  --success-soft: rgba(67, 160, 111, 0.16);
-  --warning-soft: rgba(217, 148, 18, 0.18);
-  --danger-soft:  rgba(207, 64, 64, 0.18);
-  --info-soft:    rgba(47, 116, 204, 0.18);
-
-  /* Focus */
-  --focus-ring: rgba(67, 160, 111, 0.5);
-
-  color-scheme: dark;
+  --surface-accent:      var(--clay-500);
+  --surface-accent-soft: rgba(232, 127, 69, 0.16);
 }
-

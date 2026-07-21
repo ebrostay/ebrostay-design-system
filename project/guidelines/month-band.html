@@ -1,0 +1,77 @@
+<!-- @dsCard group="Signature" viewport="700x280" name="The month-band" subtitle="1–11 whole months made tangible — river open · green yours · occupied taken" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:18px 22px;color:var(--body-text)}
+  .lbl{font-size:10px;font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 8px}
+  .head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+  .head b{font-size:var(--text-xs);font-weight:600;color:var(--ink)}
+  .band{display:flex;gap:4px}
+  .cell{flex:1;height:34px;border:none;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;cursor:pointer}
+  .on{background:var(--brand);color:#fff}
+  .off{background:var(--river-soft);color:var(--river-deep)}
+  .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:26px;margin-top:16px}
+  .avail{display:flex;gap:2px}
+  .m{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .bar{height:6px;width:100%;border-radius:var(--radius-pill)}
+  .m span{font-size:9px;text-transform:uppercase;color:var(--muted)}
+  .days{display:flex;gap:6px}
+  .day{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:6px}
+  .dlbl{font-size:9px;color:var(--muted);text-align:center;margin-top:4px;font-family:var(--font-mono)}
+  .booked{background:
+      linear-gradient(45deg,
+        transparent calc(50% - .5px),
+        color-mix(in oklab, var(--inverse) 45%, transparent) calc(50% - .5px),
+        color-mix(in oklab, var(--inverse) 45%, transparent) calc(50% + .5px),
+        transparent calc(50% + .5px))
+      var(--occupied);
+    color:var(--inverse);opacity:.9}
+  .note{margin:14px 0 0;font-size:11px;color:var(--muted)}
+</style></head>
+<body>
+  <div class="head"><b>Duración de la estancia</b><span class="data" style="font-size:var(--text-xs);color:var(--muted)">4 meses</span></div>
+  <div class="band" role="radiogroup">
+    <button class="data cell on month-cell-enter" style="--cell-index:0">1</button>
+    <button class="data cell on month-cell-enter" style="--cell-index:1">2</button>
+    <button class="data cell on month-cell-enter" style="--cell-index:2">3</button>
+    <button class="data cell on month-cell-enter" style="--cell-index:3" aria-checked="true">4</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:4">5</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:5">6</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:6">7</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:7">8</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:8">9</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:9">10</button>
+    <button class="data cell off month-cell-enter" style="--cell-index:10">11</button>
+  </div>
+  <div class="cols">
+    <div>
+      <p class="lbl">Availability band — 3 states</p>
+      <div class="avail" role="img" aria-label="7 de 12 meses libres, 1 parcial">
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">s</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">o</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">n</span></div>
+        <div class="m"><div class="bar" style="background:var(--occupied)"></div><span class="data">d</span></div>
+        <div class="m"><div class="bar" style="background:linear-gradient(90deg, var(--occupied) 50%, var(--river) 50%)"></div><span class="data">e</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">f</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">m</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">a</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">m</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">j</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">j</span></div>
+        <div class="m"><div class="bar" style="background:var(--river)"></div><span class="data">a</span></div>
+      </div>
+      <p class="note" style="margin-top:10px">Stays start mid-month, so a binary band would lie: <b>split cell = partially booked</b>. The band is a glanceable summary — day-level truth lives in the calendar.</p>
+    </div>
+    <div>
+      <p class="lbl">Calendar day states</p>
+      <div class="days">
+        <div><div class="day" style="color:var(--body-text)">14</div><div class="dlbl">open</div></div>
+        <div><div class="day" style="color:var(--body-text);box-shadow:inset 0 -2px 0 var(--river)">15</div><div class="dlbl">today</div></div>
+        <div><div class="day" style="background:var(--brand);color:#fff">16</div><div class="dlbl">selected</div></div>
+        <div><div class="day" style="background:var(--brand-soft);color:var(--ink)">17</div><div class="dlbl">range</div></div>
+        <div><div class="day booked">18</div><div class="dlbl">booked</div></div>
+      </div>
+      <p class="note">Booked = occupied-solid with a diagonal slash drawn <i>behind</i> the number — closed water, hotel-calendar style. Never a faded disable.</p>
+    </div>
+  </div>
+  <p class="note"><b>Restraint rule:</b> the band appears only where it carries data — hero selector, property cards, calendars. It is not a decorative divider.</p>
+</body></html>

@@ -1,15 +1,16 @@
 /* ============================================================
-   EBROSTAY — TYPOGRAPHY TOKENS
-   Display: Bricolage Grotesque (warm, distinctive headlines)
-   UI/Body: Hanken Grotesque (clean, neutral workhorse)
-   Mono:    JetBrains Mono (booking refs, codes, prices in tables)
+   EBROSTAY — TYPOGRAPHY TOKENS (v2)
+   Display: Bricolage Grotesque (headlines, card titles)
+   UI/Body: Onest (everything else)
+   Data:    Spline Sans Mono (prices, dates, month labels,
+            section eyebrows — the "data voice", see .data)
    ============================================================ */
 
 :root {
   /* Families */
-  --font-display: "Bricolage Grotesque", "Hanken Grotesque", system-ui, sans-serif;
-  --font-sans:    "Hanken Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Bricolage Grotesque", "Onest", system-ui, sans-serif;
+  --font-sans:    "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Type scale — fixed steps for UI text */
   --text-xs:   0.75rem;   /* 12 */
@@ -20,12 +21,18 @@
   --text-xl:   1.625rem;  /* 26 */
 
   /* Display scale — FLUID. Scales with the viewport between a
-     phone min and a desktop max, so headlines feel right everywhere. */
+     phone min and a desktop max (proven v1 tuning, adopted by the
+     v2 app in globals.css). Pair each step with its line-height. */
   --text-2xl:  clamp(1.625rem, calc(1.30rem + 1.6vw), 2rem);     /* 26 → 32 */
+  --text-2xl--line-height: 1.2;
   --text-3xl:  clamp(2rem,     calc(1.55rem + 2.2vw), 2.5rem);   /* 32 → 40 */
+  --text-3xl--line-height: 1.15;
   --text-4xl:  clamp(2.375rem, calc(1.70rem + 3.3vw), 3.125rem); /* 38 → 50 */
+  --text-4xl--line-height: 1.1;
   --text-5xl:  clamp(2.75rem,  calc(1.85rem + 4.4vw), 3.875rem); /* 44 → 62 */
+  --text-5xl--line-height: 1.05;
   --text-6xl:  clamp(3.25rem,  calc(2.00rem + 6.0vw), 4.75rem);  /* 52 → 76 */
+  --text-6xl--line-height: 1.02;
 
   /* Weights */
   --weight-regular:  400;
@@ -34,14 +41,15 @@
   --weight-bold:     700;
   --weight-extra:    800;
 
-  /* Semantic weight roles — the system runs LIGHT.
-     Display & headings sit at 600, not 700/800, for a modern, airy voice.
-     Use these aliases rather than raw numbers. */
-  --weight-display:  600;
+  /* Semantic weight roles — v2 runs 600–700.
+     Unlike v1's airy 600-everywhere, v2 headlines may sit at 700:
+     Bricolage carries weight without shouting, and the ledger voice
+     wants firm, not floaty. Headings inside UI stay at 600. */
+  --weight-display:  700;
   --weight-heading:  600;
   --weight-emphasis: 600;
   --weight-body:     400;
-  --weight-strong:   700;  /* reserve for rare, deliberate accents */
+  --weight-strong:   700;
 
   /* Line heights */
   --leading-tight:   1.08;
@@ -49,10 +57,11 @@
   --leading-normal:  1.5;
   --leading-relaxed: 1.65;
 
-  /* Letter spacing */
-  --tracking-tight:  -0.02em;
+  /* Letter spacing — display tracks −0.015em in v2 */
+  --tracking-tight:  -0.015em;
   --tracking-snug:   -0.01em;
   --tracking-normal: 0;
   --tracking-wide:   0.02em;
   --tracking-caps:   0.08em;  /* uppercase eyebrows */
+  --tracking-ledger: 0.16em;  /* .ledger-rule small-caps mono labels */
 }

@@ -1,81 +1,79 @@
-# Ebrostay — Design System
+# Ebrostay — Design System (v2)
 
-**Ebrostay** is a short-term home–booking platform for **Zaragoza, Spain** — the city on the river **Ebro**, in Aragón. Tagline: *"Book your home in Zaragoza in minutes."* It serves two audiences: **guests** looking for a place to stay, and **property owners / businesses** who host them.
+**Ebrostay** is a **mid-term corporate-rental marketplace** for **Zaragoza, Spain** — the city on the river **Ebro**, in Aragón. Stays are contracted in **whole months, 1 to 11** (whole-month billing; the 11-month cap and 15% commission rules live in the product spec). It serves two audiences: **companies and relocating professionals** who need a furnished home for months, and **property owners** who host them. Spanish is the product's default register; everything ships bilingual ES/EN. Tagline voice: *"Book your home in Zaragoza in minutes."*
 
-This is a from-scratch brand (no prior codebase, Figma, or assets were provided). The visual identity below was designed for this project: a clean, light, Mediterranean-warm system — fresh **green** primary (trust, nature, the river), warm **terracotta / amber** secondary (the Aragón sun and brick), and warm **stone** neutrals, with tasteful transparency and blur.
-
-> **Sources provided:** none (greenfield brand). Brief from the user: *"a fitting design for my website for hosting … Ebrostay — Book your home in Zaragoza in minutes … businesses and property owners … clean light with some green, you can use transparency … light-first."* If a codebase, Figma, or real photography exists, attach it via the Import menu and this system can be re-grounded against it.
+> **This is the v2 identity: "the calm ledger of a stay."** It was established on branch `redesign/v2` of the **ebrostay-home** repo, where the production implementation lives (`app/` — Next.js, Tailwind v4, tokens in `app/app/globals.css`, components in `app/components/`). This design system mirrors that language for prototyping and brand work. The **logo was kept** from v1; the v1 visual system (warm stone, terracotta/clay, hospitality-soft radii) was retired and is preserved in this repo's **git history**.
 
 ---
 
 ## Brand at a glance
 
-- **Name / mark** — "Ebrostay", with the suffix **stay** set in brand green. The mark is a rounded **arch / doorway** (a welcoming portal, echoing Zaragoza's mudéjar arches) with a small terracotta keystone dot.
-- **Personality** — warm, local, direct, trustworthy. A knowledgeable neighbour, not a corporate platform.
-- **Primary color** — Ebro green `#1f8a57`. **Accent** — terracotta `#d9632a` (used sparingly). **Neutrals** — warm stone.
-- **Type** — Bricolage Grotesque (display), Hanken Grotesque (UI/body), JetBrains Mono (refs/prices).
+- **Name / mark** — "Ebrostay", the **bridge over the Ebro**: a minimal green arch over a soft-blue water fill. The wordmark sets "Ebrostay" as one word, two-tone (dark "Ebro" + green "stay"). The whole v2 palette derives from this mark: the green stone bridge, the blue river.
+- **Concept** — *the calm ledger of a stay*. Mid-term rentals are contracts measured in whole months; the design speaks that language — disciplined ledger rules, tabular numerals, month units made tangible. Warmth comes from the photography; the UI stays cool, precise, and trustworthy.
+- **Primary color** — bridge green `#1f8a57`. **Second hue** — river blue `#9cc4f0` (open / informational; it replaced v1's terracotta accent). **Neutrals** — cool limestone; ink is green-black `#15251f`.
+- **Type** — Bricolage Grotesque (display), Onest (body), Spline Sans Mono (data).
+
+**Availability semantics — system-wide and non-negotiable:**
+
+| Color | Meaning |
+| --- | --- |
+| river blue | open / informational ("open water") |
+| bridge green | selected / yours / live |
+| occupied (ink-solid) | taken / closed |
+
+A month is rarely binary — stays start mid-month — so availability bands show a **third, split state** for partially booked months.
 
 ---
 
 ## CONTENT FUNDAMENTALS — how Ebrostay writes
 
-**Voice:** warm, plain-spoken, confident, and *local*. We sound like a helpful host who knows the city, not a booking conglomerate. Lead with the benefit; never hedge.
+**Voice** (carried over from v1 — it survived the redesign untouched): warm, plain-spoken, confident, and *local*. We sound like a helpful host who knows the city, not a booking conglomerate. Lead with the benefit; never hedge.
 
-- **Person.** Talk to the reader as **"you"** ("Book your home", "your stay"). The brand refers to itself as **"we"** sparingly, mostly stays out of the way. Hosts are "hosts"; renters are "guests".
-- **Tone.** Reassuring and specific. We remove doubt with concrete facts ("Free cancellation up to 48 hours before check-in") rather than vague promises ("flexible policies may apply").
-- **Casing.** **Sentence case everywhere** — headings, buttons, labels. No Title Case On Buttons. Uppercase is reserved for small **eyebrow** labels (tracked-out, e.g. `FEATURED STAY`).
-- **Length.** Short. Headlines are one idea. Body copy is scannable. Prices, dates and counts are concrete.
-- **Local flavour.** Lean into Zaragoza specifics — neighbourhoods (El Tubo, Casco Histórico, El Pilar, Las Fuentes), landmarks (Basílica del Pilar, the Ebro), Spanish words used naturally where they read warmly. Never gimmicky.
-- **No corporate filler.** Avoid "seamless", "leverage", "solutions", "unlock", "elevate". No exclamation-mark hype. No asterisked caveats — if there's a condition, state it plainly.
-- **Numbers.** Currency is euro `€`, shown with mono numerals (`€128 / night`). Booking references use mono uppercase (`EBR-4821-ZGZ`).
-- **Emoji.** Not used in product UI or marketing copy. Meaning is carried by words and Lucide icons.
+- **Person.** Talk to the reader as **"you"** ("Book your home", "your stay"). The brand refers to itself as **"we"** sparingly. Hosts are "hosts"; renters are "guests".
+- **Tone.** Reassuring and specific. Concrete facts ("Free cancellation up to 48 hours before check-in"), never vague promises ("flexible policies may apply.*"). Vague hedging erodes trust.
+- **Casing.** Sentence case everywhere. Uppercase only in small tracked-out ledger labels.
+- **Bilingual.** Every user-facing string exists in Spanish **and** English; Spanish is the default register. Buttons say what they do ("Solicitar reserva", never "Enviar"). Money is **always labelled an estimate** — the owner confirms the final price.
+- **Numbers.** Currency is euro, in the mono data voice with **forced digit grouping** (`1.350 €` — es-ES alone doesn't group 4-digit numbers). Counts use proper plurals in both languages. Booking references are mono uppercase (`EBR-4821-ZGZ`).
+- **Local flavour.** Zaragoza specifics — El Tubo, Casco Histórico, the Basílica del Pilar, the Ebro — used naturally, never gimmicky.
+- **No corporate filler.** Avoid "seamless", "leverage", "solutions", "unlock", "elevate". No exclamation-mark hype. No asterisked caveats. No emoji in product UI.
 
 **Examples**
 - ✅ "Book your home in Zaragoza in minutes." ❌ "Leverage our seamless booking solutions."
 - ✅ "Free cancellation up to 48h before check-in." ❌ "Flexible cancellation policies may apply.*"
-- ✅ "2 guests · 1 bedroom · river view" ❌ "A Wonderful Property With Many Amazing Features!"
+- ✅ "2 dormitorios · amueblado · disponible desde septiembre" ❌ "A Wonderful Property With Many Amazing Features!"
 
 ---
 
 ## VISUAL FOUNDATIONS
 
-**Mode.** Light-first. The canvas is warm off-white (`--surface-page` `#faf9f6`); cards are pure white. A deep green (`--surface-inverse` `#0a3324`) anchors footers and occasional feature bands. No dark mode is defined yet.
+**Mode.** Light and dark are both first-class. Theme is `data-theme="dark"` on `<html>` (or any ancestor — guideline pages scope panels with it). Dark is **green-charcoal** (`#0f1713` / `#16201b`), not warm black: hairlines go translucent, brand and ring lift a step, and `--occupied` has its own dark value — it must **never** derive from `--ink`, which flips with the theme.
 
-**Color.** Green is the brand and the only saturated color used at scale — CTAs, links, active states, selected chips, focus rings. Terracotta/amber is a *spice*: the favorite-heart fill, a "New" badge, the keystone dot — never a second primary. Neutrals are **warm-tinted stone**, not blue-grey, which keeps the whole UI feeling sunlit. Semantic colors: success = green, warning = amber, danger = a muted brick red, info = a calm blue. All used as soft tints far more often than solid fills.
+**Color.** One saturated green: if it's green, it's **yours** — selected months, your live stay, the primary action. The **river** is the second hue: open months, info notes, focus, selection. Neutrals are cool limestone with a trace of green; ink is green-black, never `#000`. Status hues (`--warn`, `--danger`) are reserved for review/rejection states; there is no separate info blue — `--river-deep` serves that role. `--star` is the one gold. **No terracotta/clay**: v1's warm accent was deliberately dropped; photography carries the warmth.
 
-**Imagery.** Photography-led — this is a hospitality product, so real property and Zaragoza photos carry the emotion (warm, sunlit, inviting interiors; golden-hour exteriors; the Ebro and Pilar). Photos sit in **16px rounded** containers, often full-bleed in heroes. A subtle bottom **protection gradient** (transparent → `rgba(20,24,20,.42)`) is used only where text overlays a photo. *Current mocks use `picsum.photos` placeholders — replace with real Zaragoza property photography (see Caveats).* When no image exists, the fallback is a green→clay gradient block, never a broken image.
+**Imagery.** Photography-led — real property and Zaragoza photos carry the emotion. Photos sit in `--radius-card` (14px) containers. Where text overlays a photo, use `--overlay` (ink-tinted), never black.
 
-**Type.** Display set in **Bricolage Grotesque** at a lighter **weight 600** (`--weight-display`) with tight tracking (−0.02em) — big and airy, not heavy. **Hanken Grotesque** 400 for body, with a wide weight jump to headings for contrast. Display sizes are **fluid** (`clamp()`, `--text-2xl`…`--text-6xl`) so headlines scale with the viewport. **JetBrains Mono** for prices, dates and booking refs. Generous line-height (1.5) for reading; tight (1.08–1.22) for display. Use the semantic weight aliases (`--weight-display/heading/body`), not raw numbers.
+**Type.** Display set in **Bricolage Grotesque**, tracking −0.015em, tight leading; v2 headlines may sit at **700** (unlike v1's airy 600) — Bricolage carries weight without shouting. UI headings stay 600. **Onest** 400 for body. **Spline Sans Mono** is the **data voice** (class `.data`): prices, dates, month labels, section eyebrows — always with tabular numerals so ledgers align. Display sizes are **fluid** (`clamp()`, `--text-2xl`…`--text-6xl`, each with a paired line-height token) — proven v1 tuning that the v2 app adopted.
 
-**Spacing & layout.** 4px base grid. Containers max out around 1200–1360px. Generous whitespace — the brand reads "calm and uncluttered". Section rhythm uses `--space-9`/`--space-12` vertical gaps. Use flex/grid with `gap` for all groupings.
+**The signature: the month-band.** An 11-cell strip — the product's whole domain (1–11 month stays) made physical. Two forms: the **stay-length selector** (cells 1–N green, rest river-wash; radiogroup semantics) and the **availability band** (a listing's next 12 months as thin bars — river = fully open, split river/occupied = partially booked, occupied-solid = taken). The band is a glanceable *summary*; day-level truth lives in the range calendar, which shares the same color language (selected span = green, booked day = occupied-solid with a diagonal slash drawn behind the number, today = river underline). **Restraint rule:** the band appears only where it carries data — hero selector, cards, calendars. It is not a decorative divider.
 
-**Corner radii.** Consolidated and intentional: tags/inner elements **8px** (`--radius-sm`), inputs/buttons **12px** (`--radius-md`), the workhorse cards/photos/panels **18px** (`--radius-lg`), large surfaces/booking card **24px** (`--radius-xl`), hero/feature bands **30px** (`--radius-2xl`). Pills (`--radius-pill`) for chips, badges, the search bar, and the search button. The in-between values were dropped so the system feels deliberate.
+**Structural voice.**
+- **Ledger rule** (`.ledger-rule`): hairline + small-caps mono label — the section divider. Labels are content words, never fake numbering.
+- **Radii:** two working values — `--radius-control` 8px (buttons, inputs, month cells) and `--radius-card` 14px (cards, photos, dialogs) — plus the pill. Contract discipline, not hospitality soft.
+- **Elevation:** two shadows only — `--shadow-card` (resting) and `--shadow-pop` (genuinely floating: menus, popovers, dialogs). Hairlines still do most separation.
+- **Focus:** 2px river ring (`--ring`), offset 2px, on `:focus-visible` — never removed.
+- **Selection** is open water: river background, ink text (`::selection`).
 
-**Shadows / elevation — FLAT system.** Separation comes from **hairline borders** (`--hairline` = 1px subtle stone), not drop-shadows. Shadows are reserved for genuinely *floating* UI and kept light: `--shadow-md` rarely, `--shadow-lg`/`--shadow-xl` for menus, popovers and the floating search bar; `--shadow-brand` (soft green) only on the primary button hover. Resting cards use a hairline + the page tint, nothing more — this is the biggest "crisp, modern" lever.
+**Motion.** One flat **150ms** transition (`--dur-standard`) for hover, press and theme changes — no lifts, no springs, no scroll reveals. The design's **one orchestrated moment** is the month-band entrance: `.month-cell-enter`, a 350ms rise with a 35ms per-cell stagger (`--cell-index`). Loading uses `.skeleton` (surface-2 base, 7% ink sweep). All of it is gated on `prefers-reduced-motion`.
 
-**Transparency & blur.** A signature touch. The hero **search bar** and on-photo controls (favorite heart, gallery arrows, photo badges) use a translucent white **glass** surface (`--glass-strong`, `backdrop-filter: blur(16px)`). Used only over imagery or as floating chrome — not on flat backgrounds.
-
-**Motion.** Restrained and natural. Hover/press use `--dur-fast` (120ms) `--ease-out`. Cards **lift 3px** on hover; photos inside cards **scale 1.045** (overflow hidden). The switch thumb uses a gentle spring (`--ease-spring`). Press states **nudge down 1px** (buttons) or **scale 0.88** (icon buttons / heart). Sections **scroll-reveal** in with a soft rise + stagger (`.ebr-reveal`, IntersectionObserver). **Skeleton** shimmer (`.ebr-skeleton`) covers loading; **empty states** use a centered icon + one line. All of it is gated on `prefers-reduced-motion` — print, PDF and reduced-motion show final state.
-
-**Dark mode.** A full dark theme ships via `[data-theme="dark"]` on `<html>` (toggle wired into the website header and dashboard topbar). It overrides only the semantic aliases — warm near-black surfaces (`#15140f`/`#1f1d17`), translucent hairlines, brighter brand green — so every component adapts with no per-component work.
-
-**States.**
-- *Hover:* primary button darkens green + gains brand shadow; secondary/ghost fill with `--surface-sunken`; chips darken their border; links/icon tiles deepen.
-- *Press:* slight downward nudge / scale-down.
-- *Focus:* 3px green focus ring (`--ring-focus`) plus a green border on fields.
-- *Selected:* green-soft fill + green border + green text (chips, tabs underline).
-- *Disabled:* 55% opacity, `not-allowed` cursor.
+**States.** Hover: brand → `--brand-strong` (or a surface-2 wash on quiet controls). Selected: green — see availability semantics. Disabled *dates* are never faded: booked = occupied-solid with the slash. Focus: the river ring.
 
 ---
 
 ## ICONOGRAPHY
 
-- **System:** [**Lucide**](https://lucide.dev) — clean, consistent 2px-stroke outline icons. This matches the light, friendly, modern aesthetic. *(Substitution flag: no brand icon set was provided, so Lucide is the chosen standard. If a custom set exists, swap it in and update this section.)*
-- **Loading:** in HTML cards / kits, load `https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js`, write `<i data-lucide="name"></i>`, and call `lucide.createIcons()` after render. Components (`Button`, `IconButton`, `Input`, `Tag`, `AmenityChip`) accept icons as a **ReactNode** prop so any icon source works.
-- **Common icons:** `search`, `map-pin`, `calendar`, `users`, `heart` (save), `star` (rating — drawn inline by `Rating`/`PropertyCard` so it always shows), `wifi`, `utensils`, `wind` (AC), `car` (parking), `bath`, `bed-double`, `chevron-right`, `share`, `shield-check`, `home`.
-- **Star** is the one glyph drawn inline (not Lucide) inside `Rating` and `PropertyCard`, filled with `--star` `#e6a52a`, so ratings never depend on the icon font.
-- **Emoji / unicode:** not used as iconography. The remove-"×" on `Tag` is the only unicode glyph.
-- **Logo:** the **bridge over the Ebro** — a minimal green arch with a small soft-sky-blue water fill (`#9cc4f0`) sitting inside the span. The wordmark sets **"Ebrostay"** as one word, weight 600, two-tone (dark "Ebro" + green "stay"). Files: `assets/logo-mark.svg` (arch mark, vertically centred in its box), `assets/logo-wordmark.svg` (mark + wordmark), `assets/favicon.svg` (light tile), `assets/app-icon-dark.svg` (deep-green app-icon tile, arch centred). For dark backgrounds use `assets/logo-mark-inverse.svg` / `assets/logo-wordmark-inverse.svg` (white arch, pale-blue water) — never a CSS invert filter.
+- **System:** [**Lucide**](https://lucide.dev) — 2px-stroke outline icons, unchanged from v1. Load `lucide.min.js`, write `<i data-lucide="name"></i>`, call `lucide.createIcons()` after render.
+- **Star** is drawn inline (not Lucide) wherever ratings appear, filled with `--star`, so ratings never depend on the icon font.
+- **Logo files:** `assets/logo-mark.svg` (arch mark), `assets/logo-wordmark.svg`, `assets/favicon.svg`, `assets/app-icon-dark.svg`, plus `-inverse` variants for dark backgrounds — never a CSS invert filter. `guidelines/logo-bridge-water.html` documents the mark. The same pack ships in the ebrostay-home app under `app/public/brand/`.
 
 ---
 
@@ -83,34 +81,29 @@ This is a from-scratch brand (no prior codebase, Figma, or assets were provided)
 
 **Foundations (root)**
 - `styles.css` — the single entry point consumers link. `@import`s only.
-- `tokens/colors.css` · `tokens/typography.css` · `tokens/spacing.css` · `tokens/fonts.css`
-- `assets/` — `logo-mark.svg`, `logo-wordmark.svg`, `favicon.svg`, `app-icon-dark.svg`, + `-inverse` variants. `guidelines/logo-bridge-water.html` documents the logo and its colour options.
+- `tokens/colors.css` (v2 palette, both themes, + clearly-marked v1 compatibility aliases) · `tokens/typography.css` · `tokens/spacing.css` (radii, shadows, motion, layout) · `tokens/utilities.css` (ledger-rule, `.data`, skeleton, month-band entrance, focus/selection) · `tokens/fonts.css`
+- `assets/` — logo pack (see Iconography).
 
 **Specimen cards** (`guidelines/`, shown in the Design System tab)
-- Colors: green, clay, stone, semantic, surfaces & glass
-- Type: display, body, mono & eyebrow
+- Colors: bridge green, river blue, limestone neutrals, surfaces, status, dark theme
+- Type: display, body, data voice
 - Spacing: scale, radii, shadows
-- Brand: logo, voice & tone
+- Motion: motion & interaction, loading skeleton
+- Signature: **the month-band**
+- Brand: logo, voice & tone (v1 pages, still canonical)
 
-**Components** (`window.EbrostayDesignSystem_8b1b13.*`)
-- `core/` — Button, IconButton, Badge, Tag, Avatar, Rating (+ RatingInline), Card
-- `forms/` — Input, Select, Checkbox, Switch
-- `product/` — **PropertyCard**, **SearchBar**, AmenityChip
-- `navigation/` — Tabs
-- Each has `<Name>.jsx`, `<Name>.d.ts`, `<Name>.prompt.md`; each group has a `*.card.html` showcase.
+**Components** (`window.EbrostayDesignSystem_8b1b13.*`) — **LEGACY, v1 visual style.** Button, IconButton, Badge, Tag, Avatar, Rating, Card, Input, Select, Checkbox, Switch, PropertyCard, SearchBar, AmenityChip, Tabs. They render via the compatibility aliases and are fine as quick prototyping stand-ins, but the **v2 component inventory lives in ebrostay-home `app/components/`** (Button, Field/Input, Radix Select, Badge, Dialog, MonthBand, PropertyCard, site chrome).
 
-**UI kits** (`ui_kits/`) — full-screen, interactive recreations built entirely from the components above
-- `website/` — booking site: home + hero search, search results with map pins, property detail with booking card → reserve. (`index.html`, `Header/Home/Results/Detail/App.jsx`, `data.js`)
-- `dashboard/` — host control panel: overview (stats + earnings chart), listings, calendar, bookings. (`index.html`, `Shell/Overview/Views/App.jsx`, `data.js`)
-- `auth/` — split-screen sign up / log in. (`index.html`, `Auth.jsx`)
+**UI kits** (`ui_kits/`) — **LEGACY, v1 visual style** (see the banner in each kit README). `website/`, `dashboard/`, `auth/` remain valuable as **feature-coverage checklists** — which screens, states and flows the v2 rebuild must cover — never as styling sources.
 
-**Usage in HTML:** link `styles.css`, load `_ds_bundle.js` (auto-generated; never edit), then `const { Button, PropertyCard } = window.EbrostayDesignSystem_8b1b13;`.
+**Usage in HTML:** link `styles.css`, style with the v2 tokens above. For legacy component demos, load `_ds_bundle.js` (auto-generated; never edit).
 
 ---
 
 ## CAVEATS
 
-- **Fonts load via Google Fonts CDN** (`tokens/fonts.css` `@import`), not self-hosted `.woff2` files. The compiler therefore reports 0 local fonts. For production, self-host Bricolage Grotesque / Hanken Grotesque / JetBrains Mono and add real `@font-face` rules. *Want me to do this?*
-- **Imagery is placeholder** (`picsum.photos`). Swap in real Zaragoza property photography for the true brand feel.
-- **Icons are Lucide** as a chosen standard (no brand set was provided).
-- The logo is an original wordmark + arch mark created for this brand. Happy to explore alternative marks.
+- **Fonts load via Google Fonts CDN** (`tokens/fonts.css` `@import`), not self-hosted `.woff2` files. For production, self-host Bricolage Grotesque / Onest / Spline Sans Mono — the ebrostay-home app already does (via `next/font/google`, CSP-friendly).
+- **The v1 token names** (`--stone-*`, `--clay-*`, `--text-strong`, `--surface-card`, `--radius-sm…2xl`, `--shadow-xs…xl`, …) still resolve — they are **compatibility aliases only**, kept so legacy pages and kits render. Do not use them in new work.
+- **Components and UI kits are v1-styled** — feature checklists, not styling sources (see above).
+- **Imagery is placeholder** (`picsum.photos`) in the legacy kits. Swap in real Zaragoza property photography.
+- **v1 in full** — the previous identity (warm stone/clay, glass search bar, airy 600 headlines) is preserved in git history if it's ever needed for reference.

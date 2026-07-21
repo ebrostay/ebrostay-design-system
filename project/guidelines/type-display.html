@@ -1,13 +1,16 @@
-<!-- @dsCard group="Type" viewport="700x230" name="Display — Bricolage Grotesque" subtitle="Headlines & hero. Fluid sizing, lighter weight 600" -->
+<!-- @dsCard group="Type" viewport="700x230" name="Display — Bricolage Grotesque" subtitle="Headlines & card titles. Fluid clamp() scale, weight 600–700" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-display);background:var(--surface-card);padding:22px;color:var(--text-strong)}
-  .d1{font-size:var(--text-4xl);font-weight:var(--weight-display);letter-spacing:var(--tracking-tight);line-height:var(--leading-tight);margin:0}
-  .d2{font-size:var(--text-2xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-snug);line-height:1.1;margin:14px 0 0}
-  .meta{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-top:14px}
+  body{margin:0;font-family:var(--font-display);background:var(--surface);padding:22px;color:var(--ink)}
+  .d1{font-size:var(--text-4xl);font-weight:var(--weight-display);letter-spacing:var(--tracking-tight);line-height:var(--text-4xl--line-height);margin:0}
+  .d2{font-size:var(--text-2xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-tight);line-height:var(--text-2xl--line-height);margin:12px 0 0}
+  .meta{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:16px;line-height:1.7}
 </style></head>
 <body>
-  <p class="d1">Book your home in Zaragoza</p>
-  <p class="d2">Stays along the Ebro, in minutes</p>
-  <div class="meta">display · weight 600 · fluid clamp() · tracking −0.02em</div>
+  <p class="d1">Tu casa en Zaragoza, por meses</p>
+  <p class="d2">Whole months, honest prices, no surprises</p>
+  <div class="meta">
+    fluid clamp() · 2xl 26→32 · 3xl 32→40 · 4xl 38→50 · 5xl 44→62 · 6xl 52→76<br>
+    tracking −0.015em · headlines may sit at 700 (v1 ran an airy 600) · UI headings stay 600
+  </div>
 </body></html>

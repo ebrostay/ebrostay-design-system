@@ -1,7 +1,7 @@
 /* ============================================================
-   EBROSTAY — SPACING, RADII, SHADOWS, MOTION
-   4px base grid. Soft warm-tinted shadows. Generous radii for a
-   friendly, modern hospitality feel.
+   EBROSTAY — SPACING, RADII, SHADOWS, MOTION (v2)
+   4px base grid. Two radii (control 8 / card 14), two shadows
+   (card / pop) — contract discipline, not hospitality soft.
    ============================================================ */
 
 :root {
@@ -20,43 +20,69 @@
   --space-12: 7rem;     /* 112 */
   --space-16: 10rem;    /* 160 */
 
-  /* Radii — consolidated. One friendly value for controls (md),
-     one for cards/photos (lg), one for big feature panels (2xl). */
-  --radius-sm:  8px;    /* tags, small chips, inner elements */
-  --radius-md:  12px;   /* buttons, inputs, selects */
-  --radius-lg:  18px;   /* cards, photos, panels (the workhorse) */
-  --radius-xl:  24px;   /* large surfaces, booking card */
-  --radius-2xl: 30px;   /* hero / feature bands */
-  --radius-pill: 999px;
-  --radius-circle: 50%;
+  /* Radii — v2 keeps exactly two working values plus the pill.
+     Controls (buttons, inputs, chips, month cells) sit at 8px;
+     cards, photos and panels at 14px. v1's 18–30px hospitality
+     curves were dropped deliberately. */
+  --radius-control: 0.5rem;    /* 8  — buttons, inputs, cells */
+  --radius-card:    0.875rem;  /* 14 — cards, photos, dialogs */
+  --radius-pill:    999px;
+  --radius-circle:  50%;
 
-  /* Shadows — FLAT system. Hairline borders do most separation;
-     shadows are reserved for genuinely floating UI and kept light.
-     Each pairs a crisp contact shadow with a soft ambient one. */
-  --shadow-xs: 0 1px 1px rgba(42, 39, 34, 0.04);
-  --shadow-sm: 0 1px 2px rgba(42, 39, 34, 0.05);
-  --shadow-md: 0 1px 2px rgba(42, 39, 34, 0.04), 0 4px 12px rgba(42, 39, 34, 0.06);
-  --shadow-lg: 0 2px 6px rgba(42, 39, 34, 0.05), 0 12px 28px rgba(42, 39, 34, 0.09);
-  --shadow-xl: 0 6px 16px rgba(42, 39, 34, 0.07), 0 24px 56px rgba(42, 39, 34, 0.12);
-  --shadow-brand: 0 6px 18px rgba(31, 138, 87, 0.22);
+  /* v1 compatibility aliases (legacy pages/ui_kits only) */
+  --radius-sm:  var(--radius-control);
+  --radius-md:  var(--radius-control);
+  --radius-lg:  var(--radius-card);
+  --radius-xl:  var(--radius-card);
+  --radius-2xl: var(--radius-card);
 
-  /* Hairline — the primary separator in the flat system */
-  --hairline: 1px solid var(--border-subtle);
+  /* Shadows — TWO only. --shadow-card is the resting elevation for
+     cards that need it; --shadow-pop is for genuinely floating UI
+     (menus, popovers, dialogs). Hairlines still do most separation. */
+  --shadow-card: 0 1px 2px rgba(21, 37, 31, 0.06), 0 8px 24px -12px rgba(21, 37, 31, 0.18);
+  --shadow-pop:  0 4px 12px rgba(21, 37, 31, 0.1), 0 24px 48px -12px rgba(21, 37, 31, 0.28);
 
-  /* Ring helpers */
+  /* v1 compatibility aliases (legacy pages/ui_kits only) */
+  --shadow-xs:    var(--shadow-card);
+  --shadow-sm:    var(--shadow-card);
+  --shadow-md:    var(--shadow-card);
+  --shadow-lg:    var(--shadow-pop);
+  --shadow-xl:    var(--shadow-pop);
+  --shadow-brand: var(--shadow-card);
+
+  /* Hairline — the primary separator */
+  --hairline: 1px solid var(--line);
+
+  /* Ring helper (legacy box-shadow form; v2 uses outline, see
+     tokens/utilities.css) */
   --ring-focus: 0 0 0 3px var(--focus-ring);
 
-  /* Motion */
+  /* Motion — v2: ONE standard duration for hover/press/theme
+     transitions, and ONE orchestrated moment (the month-band
+     stagger). Nothing else animates. */
+  --dur-standard: 150ms;  /* @kind other */
+  --dur-band:     350ms;  /* @kind other — month-rise duration */
+  --stagger-band: 35ms;   /* @kind other — per-cell delay */
+  --ease-band:    cubic-bezier(0.2, 0.6, 0.2, 1);  /* @kind other */
+
+  /* v1 compatibility aliases (legacy pages/ui_kits only) */
+  --dur-fast:   var(--dur-standard);  /* @kind other */
+  --dur-base:   var(--dur-standard);  /* @kind other */
+  --dur-slow:   var(--dur-band);      /* @kind other */
   --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);   /* @kind other */
-  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);        /* @kind other */
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);    /* @kind other */
-  --dur-fast:   120ms;  /* @kind other */
-  --dur-base:   200ms;  /* @kind other */
-  --dur-slow:   360ms;  /* @kind other */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);      /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);  /* @kind other */
 
   /* Layout */
-  --container:   1200px;
+  --container:      1200px;
   --container-wide: 1360px;
-  --header-h:    72px;
+  --header-h:       72px;
   --section-gap: clamp(4rem, 2.5rem + 5vw, 7rem);  /* breathing room between sections */
+}
+
+/* Dark theme — shadows deepen; everything else follows the color
+   tokens automatically. */
+[data-theme="dark"] {
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-pop:  0 4px 12px rgba(0, 0, 0, 0.5), 0 24px 48px -12px rgba(0, 0, 0, 0.7);
 }

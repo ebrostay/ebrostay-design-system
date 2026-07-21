@@ -1,3 +1,5 @@
+> ⚠️ **LEGACY (v1 visual style).** This kit predates the v2 redesign ("the calm ledger of a stay") and still renders in v1's warm stone/clay look via the compatibility aliases in `tokens/colors.css`. Keep it as a **feature-coverage checklist** for the v2 rebuild — which screens, states and flows must exist — but do **not** copy its styling. v2 components live in the ebrostay-home repo (`app/components/`, branch `redesign/v2`).
+
 # UI Kit — Ebrostay auth
 
 Sign up / log in. Open `index.html`.

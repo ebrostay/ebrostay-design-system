@@ -1,0 +1,36 @@
+<!-- @dsCard group="Motion" viewport="700x200" name="Loading skeleton" subtitle=".skeleton — ink-tinted sweep over surface-2, reduced-motion safe" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:22px;color:var(--body-text)}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:20px;align-items:start}
+  .lbl{font-size:10px;font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 12px}
+  .card{border:1px solid var(--line);border-radius:var(--radius-card);padding:10px;display:flex;flex-direction:column;gap:8px}
+  .small{font-size:11px;color:var(--muted)}
+</style></head>
+<body>
+  <div class="grid">
+    <div>
+      <p class="lbl">Property card</p>
+      <div class="card">
+        <div class="skeleton" style="height:64px;border-radius:var(--radius-control)"></div>
+        <div class="skeleton" style="height:12px;width:75%"></div>
+        <div class="skeleton" style="height:12px;width:45%"></div>
+      </div>
+    </div>
+    <div>
+      <p class="lbl">Text lines</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="skeleton" style="height:14px;width:90%"></div>
+        <div class="skeleton" style="height:14px;width:70%"></div>
+        <div class="skeleton" style="height:14px;width:80%"></div>
+        <div class="skeleton" style="height:14px;width:40%"></div>
+      </div>
+    </div>
+    <div>
+      <p class="lbl">Rules</p>
+      <p class="small" style="margin:0 0 8px">Base is <span style="font-family:var(--font-mono)">--surface-2</span>; the sweep is 7% ink, 1.4s — visible in both themes without a per-theme override.</p>
+      <p class="small" style="margin:0 0 8px">Shape the skeleton like the content it replaces: control radius for lines, card radius for photos.</p>
+      <p class="small" style="margin:0">Under <span style="font-family:var(--font-mono)">prefers-reduced-motion</span> the sweep stops and the block rests as a still tint.</p>
+    </div>
+  </div>
+</body></html>

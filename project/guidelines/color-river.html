@@ -1,0 +1,29 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="River blue" subtitle="Open, informational — replaces v1's clay accent" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:18px;color:var(--body-text)}
+  .row{display:flex;gap:12px}
+  .sw{flex:1;height:78px;border-radius:var(--radius-control);display:flex;flex-direction:column;justify-content:flex-end;padding:9px 11px}
+  .sw b{font-size:11px;font-weight:600}
+  .sw span{font-size:10px;font-family:var(--font-mono);opacity:.75}
+  .demo{flex:1.2;display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .cells{display:flex;gap:3px}
+  .cell{flex:1;height:26px;border-radius:6px;background:var(--river-soft);color:var(--river-deep);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px}
+  .sel{font-size:12px}
+  .sel mark{background:var(--river);color:#15251f;padding:1px 2px;border-radius:2px}
+  .info{font-size:12px;color:var(--river-deep)}
+  .note{margin:12px 2px 0;font-size:11px;color:var(--muted)}
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw" style="background:var(--river);color:#15251f"><b>river</b><span>#9cc4f0 · open water</span></div>
+    <div class="sw" style="background:var(--river-deep);color:#fff"><b>river-deep</b><span>#4a7fb5 · text / icons / ring</span></div>
+    <div class="sw" style="background:var(--river-soft);color:var(--river-deep)"><b>river-soft</b><span>#e9f1fa · open-month wash</span></div>
+    <div class="demo">
+      <div class="cells"><div class="cell">may</div><div class="cell">jun</div><div class="cell">jul</div></div>
+      <div class="sel">Text selection is <mark>open water</mark> too.</div>
+      <div class="info">Info reads in river-deep — no separate blue.</div>
+    </div>
+  </div>
+  <p class="note">The logo's Ebro. River means <b>open / informational</b> — free months, info notes, focus, selection. It REPLACES v1's terracotta/clay accent: the second hue is now cool, not warm.</p>
+</body></html>

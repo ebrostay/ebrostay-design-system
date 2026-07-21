@@ -1,22 +1,18 @@
-<!-- @dsCard group="Spacing" viewport="700x210" name="Elevation / shadows" subtitle="Flat system — hairlines separate; shadows only for floating UI" -->
+<!-- @dsCard group="Spacing" viewport="700x210" name="Elevation / shadows" subtitle="Two shadows only — card rests, pop floats; hairlines still separate" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);background:var(--surface-page);padding:26px 22px}
-  .row{display:flex;gap:22px;align-items:center}
+  body{margin:0;font-family:var(--font-sans);background:var(--page);padding:26px 22px}
+  .row{display:flex;gap:26px;align-items:center}
   .c{display:flex;flex-direction:column;align-items:center;gap:12px}
-  .box{width:92px;height:64px;background:var(--surface-card);border-radius:var(--radius-md)}
-  .c b{font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
-  .note{margin:18px 2px 0;font-size:11px;color:var(--text-subtle)}
+  .box{width:120px;height:72px;background:var(--surface);border-radius:var(--radius-card)}
+  .c b{font-family:var(--font-mono);font-size:10px;color:var(--muted);font-weight:500}
+  .note{margin:18px 2px 0;font-size:11px;color:var(--muted)}
 </style></head>
 <body>
   <div class="row">
     <div class="c"><div class="box" style="border:var(--hairline)"></div><b>hairline</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-xs)"></div><b>xs</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-sm)"></div><b>sm</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-md)"></div><b>md</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-lg)"></div><b>lg</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-xl)"></div><b>xl</b></div>
-    <div class="c"><div class="box" style="box-shadow:var(--shadow-brand);background:var(--brand)"></div><b>brand</b></div>
+    <div class="c"><div class="box" style="box-shadow:var(--shadow-card)"></div><b>shadow-card</b></div>
+    <div class="c"><div class="box" style="box-shadow:var(--shadow-pop)"></div><b>shadow-pop</b></div>
   </div>
-  <p class="note">Hairline borders do the separating. Reserve <b>lg / xl</b> for genuinely floating things — menus, the search bar, popovers.</p>
+  <p class="note">The whole elevation system: a hairline for most edges, <b>card</b> for resting cards that need lift, <b>pop</b> for genuinely floating UI — menus, popovers, dialogs. Both are ink-tinted in light, deepened in dark. Legacy <span style="font-family:var(--font-mono)">--shadow-xs…xl</span> alias onto the pair.</p>
 </body></html>

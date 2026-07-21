@@ -1,23 +1,30 @@
-<!-- @dsCard group="Colors" viewport="700x150" name="Brand green" subtitle="Primary — CTAs, links, brand moments" -->
+<!-- @dsCard group="Colors" viewport="700x170" name="Bridge green" subtitle="Actions, selected, yours — the logo's bridge" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:18px}
-  .row{display:flex;gap:0;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm)}
-  .sw{flex:1;height:88px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 10px}
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:18px;color:var(--body-text)}
+  .row{display:flex;gap:12px}
+  .sw{flex:1;height:78px;border-radius:var(--radius-control);display:flex;flex-direction:column;justify-content:flex-end;padding:9px 11px}
   .sw b{font-size:11px;font-weight:600}
-  .sw span{font-size:10px;font-family:var(--font-mono);opacity:.7}
+  .sw span{font-size:10px;font-family:var(--font-mono);opacity:.75}
+  .demo{flex:1.2;display:flex;align-items:center;gap:10px}
+  .btn{height:38px;padding:0 16px;border:none;border-radius:var(--radius-control);background:var(--brand);color:#fff;font-family:var(--font-sans);font-weight:600;font-size:var(--text-sm);cursor:pointer}
+  .cells{display:flex;gap:3px;flex:1}
+  .cell{flex:1;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px}
+  .note{margin:12px 2px 0;font-size:11px;color:var(--muted)}
 </style></head>
 <body>
   <div class="row">
-    <div class="sw" style="background:var(--green-50);color:var(--green-800)"><b>50</b><span>#ecf6ef</span></div>
-    <div class="sw" style="background:var(--green-100);color:var(--green-800)"><b>100</b><span>#d2ebda</span></div>
-    <div class="sw" style="background:var(--green-200);color:var(--green-800)"><b>200</b><span>#a6d6b8</span></div>
-    <div class="sw" style="background:var(--green-300);color:var(--green-900)"><b>300</b><span>#71bd91</span></div>
-    <div class="sw" style="background:var(--green-400);color:#fff"><b>400</b><span>#43a06f</span></div>
-    <div class="sw" style="background:var(--green-500);color:#fff"><b>500 ·</b><span>#1f8a57</span></div>
-    <div class="sw" style="background:var(--green-600);color:#fff"><b>600</b><span>#157047</span></div>
-    <div class="sw" style="background:var(--green-700);color:#fff"><b>700</b><span>#115a3a</span></div>
-    <div class="sw" style="background:var(--green-800);color:#fff"><b>800</b><span>#0e4730</span></div>
-    <div class="sw" style="background:var(--green-900);color:#fff"><b>900</b><span>#0a3324</span></div>
+    <div class="sw" style="background:var(--brand);color:#fff"><b>brand ·</b><span>#1f8a57</span></div>
+    <div class="sw" style="background:var(--brand-strong);color:#fff"><b>brand-strong</b><span>#157047 · hover / AA text</span></div>
+    <div class="sw" style="background:var(--brand-soft);color:var(--brand-strong)"><b>brand-soft</b><span>#e3f2e9 · selected wash</span></div>
+    <div class="demo">
+      <button class="btn">Solicitar reserva</button>
+      <div class="cells">
+        <div class="cell" style="background:var(--brand);color:#fff">1</div>
+        <div class="cell" style="background:var(--brand);color:#fff">2</div>
+        <div class="cell" style="background:var(--river-soft);color:var(--river-deep)">3</div>
+      </div>
+    </div>
   </div>
+  <p class="note">The one saturated green. If it is green, it is <b>yours</b> — the selected months, your live stay, the primary action. Never decorative.</p>
 </body></html>

@@ -1,19 +1,24 @@
-<!-- @dsCard group="Type" viewport="700x190" name="Mono & eyebrow" subtitle="JetBrains Mono for refs/prices; uppercase eyebrows" -->
+<!-- @dsCard group="Type" viewport="700x210" name="Data voice — Spline Sans Mono" subtitle="Prices, dates, month labels, ledger eyebrows — tabular numerals" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
 <style>
-  body{margin:0;font-family:var(--font-sans);background:var(--surface-card);padding:22px;color:var(--text-body);display:flex;gap:40px;flex-wrap:wrap}
-  .eyebrow{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:var(--tracking-caps);color:var(--text-brand)}
-  .mono{font-family:var(--font-mono);font-size:var(--text-base);color:var(--text-strong);font-weight:500}
-  .price{font-family:var(--font-mono);font-size:var(--text-2xl);font-weight:600;color:var(--text-strong)}
-  .lbl{font-size:11px;color:var(--text-subtle);margin-top:4px}
+  body{margin:0;font-family:var(--font-sans);background:var(--surface);padding:22px;color:var(--body-text)}
+  .cols{display:flex;gap:40px;flex-wrap:wrap}
   .col{display:flex;flex-direction:column;gap:14px}
+  .price{font-size:var(--text-2xl);font-weight:600;color:var(--ink)}
+  .range{font-size:var(--text-base);color:var(--ink);font-weight:500}
+  .lbl{font-size:11px;color:var(--muted);margin-top:4px}
+  .ledger-rule{width:280px;margin-top:2px}
 </style></head>
 <body>
-  <div class="col">
-    <div><div class="eyebrow">Featured stay</div><div class="lbl">eyebrow · caps · tracking 0.08em</div></div>
-    <div><div class="mono">REF · EBR-4821-ZGZ</div><div class="lbl">booking reference</div></div>
+  <div class="cols">
+    <div class="col">
+      <div><div class="data price">1.350 €<span style="font-size:14px;color:var(--muted);font-weight:400"> / mes</span></div><div class="lbl">price · tabular numerals · grouped 4-digit figures</div></div>
+      <div><div class="data range">01 sep 2026 — 31 may 2027 · 9 meses</div><div class="lbl">dates and month counts speak mono</div></div>
+    </div>
+    <div class="col">
+      <div><div class="ledger-rule"><span>viviendas</span></div><div class="lbl">.ledger-rule — the section voice; content words, never numbering</div></div>
+      <div><div class="data" style="font-size:var(--text-base);color:var(--ink);font-weight:500">REF · EBR-4821-ZGZ</div><div class="lbl">booking reference</div></div>
+    </div>
   </div>
-  <div class="col">
-    <div><div class="price">€128<span style="font-size:14px;color:var(--text-muted);font-weight:500"> / night</span></div><div class="lbl">price · mono numerals</div></div>
-  </div>
+  <p style="margin:16px 2px 0;font-size:11px;color:var(--muted)">If it is a number the contract cares about, it wears <span class="data">.data</span> — mono with <span class="data">tabular-nums</span> so columns of prices and dates align like a ledger.</p>
 </body></html>
